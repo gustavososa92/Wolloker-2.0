@@ -1,0 +1,15 @@
+import elementos.*
+import jugador.*
+import niveles.*
+import tablero.*
+import wollok.game.*
+
+program Wolloker {
+	game.title("Wolloker 2.0")
+	game.height(15)
+	game.width(25)
+	game.ground("suelo2.png")
+//	game.addVisual(presentacion)
+	keyboard.c().onPressDo({ nivel1.cargar() })
+	game.start()
+}
