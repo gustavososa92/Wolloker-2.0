@@ -41,24 +41,23 @@ object controladorDeTablero {
 		self.cosasEn(posicion).forEach({ c => game.removeVisual(c)})
 	}
 
-	method moverIzq(cosa) {
-		self.moverA(cosa.position().left(1), cosa)
-	}
-
-	method moverDer(cosa) {
-		self.moverA(cosa.position().right(1), cosa)
-	}
-
-	method moverArr(cosa) {
-		self.moverA(cosa.position().up(1), cosa)
-	}
-
-	method moverAba(cosa) {
-		self.moverA(cosa.position().down(1), cosa)
-	}
-
 	method moverA(posicion, cosa) {
 		cosa.moverse(posicion)
+	}
+
+}
+
+object scheduler {
+
+	var count = 0
+
+	method schedule(milliseconds, action) {
+		count += 1
+		const name = "scheduler" + count
+		game.onTick(milliseconds, name, { =>
+			action.apply()
+			game.removeTickEvent(name)
+		})
 	}
 
 }

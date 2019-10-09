@@ -1,4 +1,3 @@
-//import elementos.*
 import jugador.*
 import niveles.*
 import tablero.*
@@ -19,14 +18,6 @@ class CosaInteractiva inherits CosaEnTablero {
 	override method dejaPasar() = true
 
 	method teChocasteCon(cosa) {
-	}
-
-	method aparecer() {
-		game.addVisual(self)
-	}
-
-	method desaparecer() {
-		game.removeVisual(self)
 	}
 
 }
